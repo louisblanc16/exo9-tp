@@ -11,6 +11,18 @@
     $resultatProfs = $dbPDO->prepare("SELECT * FROM professeurs");
     $resultatProfs->execute();
     $profs = $resultatProfs->fetchAll();
+
+    $resultat = $dbPDO->prepare("INSERT INTO matiere(lib) VALUES (:lib)");
+    $req = $resultat->execute([
+        'lib' =>'Philosophie'
+    ]);
+
+    if($req){
+        echo "La matière a bien été ajoutée";
+    }else {
+        echo "Erreur lors de l'ajout";
+    }
+
 ?>
 
 <!DOCTYPE html>
@@ -37,6 +49,24 @@
             <?php foreach($profs as $prof){ ?>
                 <p><?=$prof['prenom'];?> <?=$prof['nom']; ?></p>
             <?php } ?>
+
+        <h2>Ajouter une matière</h2>
+        
+            <form action="Views/nouvelle_matiere.php" method="post">
+                <label>Libellé : </label>
+                <input type="text" name="libelle">
+                <input type="submit" value="Valider">
+            </form>
+
+        <h2>Ajouter un étudiant</h2>
+            <form action = "Views/nouvel_etudiant.php" method= "post">
+                <label>Prénom : </label>
+                <input type="text" name="prenom">
+                <label>Nom : </label>
+                <input type="text" name="nom">
+
+                <input type= "submit" value="Valider">
+            </form>
 
     </body>
 
