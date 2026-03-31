@@ -38,6 +38,7 @@
         <h1>Etudiants</h1>
             <?php foreach($etudiants as $etudiant){ ?>
                 <p><?=$etudiant['prenom'];?> <?=$etudiant['nom']; ?></p>
+                <a href="Views/modif_etudiant.php?id=<?= $etudiant['id']; ?>">Modifier</a>
             <?php } ?>
 
         <h1>Classes</h1>
@@ -51,7 +52,7 @@
             <?php } ?>
 
         <h2>Ajouter une matière</h2>
-        
+
             <form action="Views/nouvelle_matiere.php" method="post">
                 <label>Libellé : </label>
                 <input type="text" name="libelle">
