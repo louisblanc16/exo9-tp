@@ -39,6 +39,7 @@
             <?php foreach($etudiants as $etudiant){ ?>
                 <p><?=$etudiant['prenom'];?> <?=$etudiant['nom']; ?></p>
                 <a href="Views/modif_etudiant.php?id=<?= $etudiant['id']; ?>">Modifier</a>
+                <a href="Views/suppression_etudiant.php?id=<?= $etudiant['id']; ?>">Supprimer</a>
             <?php } ?>
 
         <h1>Classes</h1>
