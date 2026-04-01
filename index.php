@@ -12,17 +12,6 @@
     $resultatProfs->execute();
     $profs = $resultatProfs->fetchAll();
 
-    $resultat = $dbPDO->prepare("INSERT INTO matiere(lib) VALUES (:lib)");
-    $req = $resultat->execute([
-        'lib' =>'Philosophie'
-    ]);
-
-    if($req){
-        echo "La matière a bien été ajoutée";
-    }else {
-        echo "Erreur lors de l'ajout";
-    }
-
 ?>
 
 <!DOCTYPE html>
@@ -32,9 +21,11 @@
     <head>
         <meta charset="UTF-8">
         <title>Junia</title>
+        <link rel="stylesheet" href="style.css">
     </head>
 
     <body>
+        <div class="section">
         <h1>Etudiants</h1>
             <?php foreach($etudiants as $etudiant){ ?>
                 <p><?=$etudiant['prenom'];?> <?=$etudiant['nom']; ?></p>
@@ -69,7 +60,7 @@
 
                 <input type= "submit" value="Valider">
             </form>
-
+    </div>
     </body>
 
 
